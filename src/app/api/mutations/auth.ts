@@ -23,7 +23,7 @@ const register = async (payload: { username: string; password: string }): Promis
   } catch (error) {
     if (axios.isAxiosError(error)) {
       const axiosError = error as AxiosError;
-      console.error("Register error:", axiosError.response?.data || axiosError.message);
+      console.error("Register error:", axiosError.response?.data ?? axiosError.message);
       throw axiosError;
     } else {
       console.error("Register error:", error);

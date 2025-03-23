@@ -15,7 +15,7 @@ export default async function DashboardLayout({ children }: Readonly<{ children:
           </header>
           
           <main className="flex-1 p-6 overflow-auto">
-            <div className="border-[0.5px] border-slate-200 rounded-lg shadow-sm p-6">
+            <div className="border-[0.5px] border-slate-200 rounded-lg shadow-sm p-6 h-full">
               {children}
             </div>
           </main>
