@@ -14,6 +14,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+
+import { useAuth } from "@/hooks/useAuth";
 import { useLoginMutation } from "@/app/api/mutations/auth";
 
 const formSchema = z.object({
@@ -28,6 +30,8 @@ const formSchema = z.object({
 export default function Login() {
   const router = useRouter();
   const loginMutation = useLoginMutation();
+  const { setUser } = useAuth();
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -38,7 +42,8 @@ export default function Login() {
 
   const onSubmit = async (payload: z.infer<typeof formSchema>) => {
     loginMutation.mutate(payload, {
-      onSuccess: () => {
+      onSuccess: (data) => {
+        setUser(data);
         router.push("/dashboard");
       },
     });
