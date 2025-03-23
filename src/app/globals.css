@@ -136,6 +136,7 @@
   width: 513px;
   height: 513px;
   right: 3rem;
+  z-index: -1;
   bottom: 1px;
   background: rgba(187, 32, 187, 0.20);
   filter: blur(500px)
